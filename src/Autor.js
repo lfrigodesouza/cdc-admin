@@ -143,8 +143,13 @@ class AutorBox extends Component {
   render() {
     return (
       <React.Fragment>
-        <FormularioAutor />
-        <TabelaAutores lista={this.state.lista} />
+        <div className='header'>
+          <h1>Cadastro de Autor</h1>
+        </div>
+        <div className='content' id='content'>
+          <FormularioAutor />
+          <TabelaAutores lista={this.state.lista} />
+        </div>
       </React.Fragment>
     );
   }
