@@ -42,14 +42,8 @@ class FormularioAutor extends Component {
     });
   };
 
-  setEmail = evt => {
-    this.setState({ email: evt.target.value });
-  };
-  setNome = evt => {
-    this.setState({ nome: evt.target.value });
-  };
-  setSenha = evt => {
-    this.setState({ senha: evt.target.value });
+  salvaAlteracao = (nomeInput, evento) => {
+    this.setState({ [nomeInput]: evento.target.value });
   };
 
   render() {
@@ -64,25 +58,28 @@ class FormularioAutor extends Component {
             label='Nome'
             type='text'
             name='nome'
+            id='nome'
             placeHolder='Nome do autor'
             value={this.state.nome}
-            onChange={this.setNome}
+            onChange={this.salvaAlteracao}
           />
           <InputCustomizado
             label='E-mail'
             type='email'
             name='email'
+            id='email'
             placeHolder='E-mail do autor'
             value={this.state.email}
-            onChange={this.setEmail}
+            onChange={this.salvaAlteracao}
           />
           <InputCustomizado
             label='Senha'
             type='password'
             name='senha'
+            id='senha'
             placeHolder='Senha de acesso'
             value={this.state.senha}
-            onChange={this.setSenha}
+            onChange={this.salvaAlteracao}
           />
           <SubmitCustomizado label='Gravar' />
         </form>

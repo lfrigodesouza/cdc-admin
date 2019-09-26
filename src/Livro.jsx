@@ -83,15 +83,10 @@ class FormularioLivro extends Component {
     });
   };
 
-  handleTitleChange = evt => {
-    this.setState({ titulo: evt.target.value });
+  salvaAlteracao = (nome, evt) => {
+    this.setState({ [nome]: evt.target.value });
   };
-  handlePrecoChange = evt => {
-    this.setState({ preco: evt.target.value });
-  };
-  handleAutorChange = evt => {
-    this.setState({ autorId: evt.target.value });
-  };
+
   render() {
     return (
       <div className='pure-form pure-form-aligned'>
@@ -104,24 +99,26 @@ class FormularioLivro extends Component {
             label='Título'
             type='text'
             name='titulo'
+            id='titulo'
             value={this.state.titulo}
-            onChange={this.handleTitleChange}
+            onChange={this.salvaAlteracao}
             placeHolder='Título do livro'
           />
           <InputCustomizado
             label='Preço'
             type='number'
             name='preco'
+            id='preco'
             value={this.state.preco}
-            onChange={this.handlePrecoChange}
-            isCurrency='true'
+            onChange={this.salvaAlteracao}
             placeHolder='R$'
           />
           <SelectCustomizado
             label='Autor'
             name='autorId'
+            id='autorId'
             value={this.state.autorId}
-            onChange={this.handleAutorChange}
+            onChange={this.salvaAlteracao}
             autores={this.state.listaAutores}
           />
           <SubmitCustomizado label='Gravar' />

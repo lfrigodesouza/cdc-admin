@@ -8,27 +8,16 @@ class InputCustomizado extends Component {
   }
 
   render() {
-    const {
-      label,
-      type,
-      name,
-      value,
-      onChange,
-      isCurrency,
-      placeHolder
-    } = this.props;
+    const { label, type, name, value, onChange, placeHolder } = this.props;
     return (
       <div className='pure-control-group'>
         <label htmlFor={name}>{label}</label>
         <input
-          id={name}
-          type={type}
-          name={name}
-          value={value}
-          onChange={onChange}
-          min={isCurrency ? '0.00' : ''}
-          step={isCurrency ? '0.01' : ''}
-          placeholder={placeHolder}
+          {...this.props}
+          onChange={evt => {
+            debugger;
+            this.props.onChange(name, evt);
+          }}
         />
         <span className='error'>{this.state.msgErro}</span>
       </div>
