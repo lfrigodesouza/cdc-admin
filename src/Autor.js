@@ -64,13 +64,15 @@ class FormularioAutor extends Component {
             label='Nome'
             type='text'
             name='nome'
+            placeHolder='Nome do autor'
             value={this.state.nome}
             onChange={this.setNome}
           />
           <InputCustomizado
-            label='Email'
+            label='E-mail'
             type='email'
             name='email'
+            placeHolder='E-mail do autor'
             value={this.state.email}
             onChange={this.setEmail}
           />
@@ -78,6 +80,7 @@ class FormularioAutor extends Component {
             label='Senha'
             type='password'
             name='senha'
+            placeHolder='Senha de acesso'
             value={this.state.senha}
             onChange={this.setSenha}
           />

@@ -1,35 +1,23 @@
 import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 
-class InputCustomizado extends Component {
-  constructor() {
-    super();
-    this.state = { msgErro: '' };
-  }
-
+class SelectCustomizado extends Component {
+  state = { msgErro: '' };
   render() {
-    const {
-      label,
-      type,
-      name,
-      value,
-      onChange,
-      isCurrency,
-      placeHolder
-    } = this.props;
+    const { name, label, autores, value, onChange } = this.props;
     return (
       <div className='pure-control-group'>
         <label htmlFor={name}>{label}</label>
-        <input
-          id={name}
-          type={type}
-          name={name}
-          value={value}
-          onChange={onChange}
-          min={isCurrency ? '0.00' : ''}
-          step={isCurrency ? '0.01' : ''}
-          placeholder={placeHolder}
-        />
+        <select id={name} value={value} onChange={onChange}>
+          <option value=''>Selecione</option>
+          {autores.map(autor => {
+            return (
+              <option key={autor.id} value={autor.id}>
+                {autor.nome}
+              </option>
+            );
+          })}
+        </select>
         <span className='error'>{this.state.msgErro}</span>
       </div>
     );
@@ -47,4 +35,4 @@ class InputCustomizado extends Component {
   }
 }
 
-export default InputCustomizado;
+export default SelectCustomizado;
